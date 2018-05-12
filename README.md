@@ -1,6 +1,6 @@
 # sistema-pedidos-tp2
 
-#Diretivas para desenvolvimento
+# Diretivas para desenvolvimento
 
 ## Git
 * Os merges de todos os integrantes deverão ter aprovações de outro membro.
