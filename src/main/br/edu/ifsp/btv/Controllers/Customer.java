@@ -1,6 +1,6 @@
 package main.br.edu.ifsp.btv.Controllers;
 
-public class User {
+public class Customer {
     private int id;
     private String name;
     private String address;
