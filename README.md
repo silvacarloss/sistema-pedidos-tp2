@@ -6,7 +6,7 @@
 * Evitar commits muito longos
 * Não commitar coisas quebradas
 * Utilizar sempre git add -p
-* Sempre que a issue for fechada, no merge request adicionar #closes id da issue
+* Sempre que a issue for fechada, no merge request adicionar closes #id da issue
 
 ## Desenvolvimento
 * Nomes de classes, funções e variáveis em inglês e com o nome sugestivo
