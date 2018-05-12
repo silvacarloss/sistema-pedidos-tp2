@@ -7,6 +7,8 @@
 * Não commitar coisas quebradas
 * Utilizar sempre git add -p
 * Sempre que a issue for fechada, no merge request adicionar closes #id da issue
+* Cada issue deve ser resolvida em uma branch
+* Criar as branchs somente quando for iniciar o trabalho
 
 ## Desenvolvimento
 * Nomes de classes, funções e variáveis em inglês e com o nome sugestivo
