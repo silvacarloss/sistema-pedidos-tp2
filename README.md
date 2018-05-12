@@ -1,5 +1,3 @@
-# sistema-pedidos-tp2
-
 # Diretivas para desenvolvimento
 
 ## Git
