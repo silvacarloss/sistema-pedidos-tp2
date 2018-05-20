@@ -10,4 +10,6 @@ public abstract class Payment{
     public void setAmount(double amount) {
         this.amount = amount;
     }
+
+    public boolean pay();
 }
