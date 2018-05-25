@@ -11,5 +11,7 @@ public abstract class Payment{
         this.amount = amount;
     }
 
-    public boolean pay();
+    public boolean pay() {
+    	return true;
+    }
 }
