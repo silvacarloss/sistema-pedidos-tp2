@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
-import main.br.edu.ifsp.btv.Controllers.Item;
-import main.br.edu.ifsp.btv.Controllers.Order;
+import br.edu.ifsp.btv.Controllers.Item;
+import br.edu.ifsp.btv.Controllers.Order;
 
 public class OrderTest {
 	

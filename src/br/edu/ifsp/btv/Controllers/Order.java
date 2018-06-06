@@ -1,4 +1,4 @@
-package main.br.edu.ifsp.btv.Controllers;
+package br.edu.ifsp.btv.Controllers;
 
 import java.sql.Date;
 import java.util.List;

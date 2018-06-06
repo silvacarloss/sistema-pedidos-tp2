@@ -1,4 +1,4 @@
-package main.br.edu.ifsp.btv.Controllers;
+package br.edu.ifsp.btv.Controllers;
 
 public class Item {
 	private float shippingWeight;

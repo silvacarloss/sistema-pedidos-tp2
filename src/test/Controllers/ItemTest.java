@@ -1,10 +1,10 @@
-package Controllers;
+package test.Controllers;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import main.br.edu.ifsp.btv.Controllers.Item;
+import br.edu.ifsp.btv.Controllers.Item;
 
 public class ItemTest {
 	
