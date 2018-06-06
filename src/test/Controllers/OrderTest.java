@@ -1,4 +1,4 @@
-package Controllers;
+package test.Controllers;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
