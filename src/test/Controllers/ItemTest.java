@@ -1,4 +1,4 @@
-package test.Controllers;
+package Controllers;
 
 import org.junit.Test;
 
