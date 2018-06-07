@@ -1,4 +1,4 @@
-package main.br.edu.ifsp.btv.Views;
+package br.edu.ifsp.btv.Views;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
