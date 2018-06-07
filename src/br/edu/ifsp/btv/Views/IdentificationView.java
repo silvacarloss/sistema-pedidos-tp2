@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import br.edu.ifsp.btv.SispedidosApplication;
 import br.edu.ifsp.btv.Controllers.Customer;
 
 import javax.swing.JButton;
@@ -94,8 +95,9 @@ public class IdentificationView extends JFrame {
 					Customer customer = new Customer();
 					customer.setAddress(address);
 					customer.setName(name);
+					SispedidosApplication.getInstance().setCustomer(customer);
 					
-					ShoppingView shopping = new ShoppingView();
+					ShoppingView shopping = new ShoppingView();					
 					shopping.show();
 				}else {
 					JOptionPane.showMessageDialog(null, 

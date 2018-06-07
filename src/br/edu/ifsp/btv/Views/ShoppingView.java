@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import br.edu.ifsp.btv.SispedidosApplication;
 import br.edu.ifsp.btv.Controllers.Item;
 
 import javax.swing.JTextField;
@@ -49,8 +50,9 @@ public class ShoppingView extends JFrame {
 	 * Create the frame.
 	 */
 	public ShoppingView() {
+		setTitle("Confirmação de pedido");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 350);
+		setBounds(100, 100, 600, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -98,45 +100,67 @@ public class ShoppingView extends JFrame {
 							"Erro ao prosseguir", JOptionPane.ERROR_MESSAGE);
 				}
 			}
-		});
+		});	
+		
+		
+		JLabel lblClient = new JLabel("Cliente");
+		lblClient.setText("Sr (a): " + SispedidosApplication.getInstance().getCustomer().getName() + "\n"
+				+ " confirme seu pedido e selecione o tipo de pagamento");
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(22)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(paymentMethod, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblListaDeItens)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(lblPriceText, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(lblFormasDePagamento, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-							.addGap(18)
-							.addComponent(lblPrice))
-						.addComponent(itemsPanel, GroupLayout.PREFERRED_SIZE, 395, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(73, Short.MAX_VALUE))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(359, Short.MAX_VALUE)
-					.addComponent(confirmShipping)
-					.addGap(27))
+							.addComponent(lblClient)
+							.addContainerGap())
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addComponent(lblListaDeItens)
+								.addContainerGap())
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(itemsPanel, GroupLayout.PREFERRED_SIZE, 395, GroupLayout.PREFERRED_SIZE)
+									.addContainerGap())
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(lblFormasDePagamento)
+										.addContainerGap())
+									.addComponent(paymentMethod, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(lblPriceText, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(lblPrice)
+										.addGap(156)
+										.addComponent(confirmShipping)
+										.addGap(21)))))))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblClient)
+					.addPreferredGap(ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
 					.addComponent(lblListaDeItens)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(itemsPanel, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(lblFormasDePagamento)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(paymentMethod, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(28)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblPriceText)
-						.addComponent(lblPrice))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(confirmShipping)
-					.addContainerGap(21, Short.MAX_VALUE))
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(lblFormasDePagamento)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(paymentMethod, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblPriceText)
+								.addComponent(lblPrice))
+							.addGap(25))
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addComponent(confirmShipping)
+							.addGap(28))))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
