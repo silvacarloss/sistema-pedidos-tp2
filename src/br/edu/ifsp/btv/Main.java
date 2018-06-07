@@ -1,24 +1,20 @@
 package br.edu.ifsp.btv;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Main extends Application{
+import br.edu.ifsp.btv.Controllers.Item;
+import br.edu.ifsp.btv.Views.IdentificationView;
+import br.edu.ifsp.btv.Views.Utils;
+
+public class Main {
 
     public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("ShoppingView.fxml"));
-        Button btnContinue = (Button) root.lookup("#btnContinue");
-        primaryStage.setTitle("aeae");
-        primaryStage.setScene(new Scene(root, 500, 500));
-        primaryStage.show();
+    	List<Item> chartItems = new ArrayList<Item>();
+    	chartItems = Utils.generateListItems();
+    	SispedidosApplication.getInstance().setChartItems(chartItems);
+    	
+        IdentificationView identification = new IdentificationView();
+        identification.show();
     }
 }

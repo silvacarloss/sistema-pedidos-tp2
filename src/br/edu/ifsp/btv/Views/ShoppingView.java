@@ -72,7 +72,7 @@ public class ShoppingView extends JFrame {
 		
 		float totalPrice = 0;
 		
-		for(Item item : Utils.generateListItems()) {
+		for(Item item : SispedidosApplication.getInstance().getChartItems()) {
 			JLabel lblNewItem = new JLabel("Descrição: " + item.getDescription() + " Preço: " + item.getPrice());
 			totalPrice += item.getPrice();
 			itemsPanel.add(lblNewItem);
@@ -86,14 +86,15 @@ public class ShoppingView extends JFrame {
 				if(paymentMethod.getModel().getSelectedItem().equals("Crédito")) {
 					CreditPayment credit = new CreditPayment();
 					credit.show();
+					hide();
 				}else if(paymentMethod.getModel().getSelectedItem().equals("Dinheiro")){
-					JOptionPane.showMessageDialog(null, 
-							"Parabéns pela sua aquisição, suas compras serão entregues em breve.", 
-							"Compra efetuada com sucesso", JOptionPane.INFORMATION_MESSAGE);
-					System.exit(1);
+					OrderDetails orderDetails = new OrderDetails();
+					orderDetails.show();
+					hide();
 				}else if(paymentMethod.getModel().getSelectedItem().equals("Cheque")) {
 					CheckPayment check = new CheckPayment();
 					check.show();
+					hide();
 				}else {
 					JOptionPane.showMessageDialog(null, 
 							"Selecione corretamente a forma de pagamento", 

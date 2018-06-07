@@ -97,6 +97,7 @@ public class IdentificationView extends JFrame {
 					customer.setName(name);
 					SispedidosApplication.getInstance().setCustomer(customer);
 					
+					hide();
 					ShoppingView shopping = new ShoppingView();					
 					shopping.show();
 				}else {

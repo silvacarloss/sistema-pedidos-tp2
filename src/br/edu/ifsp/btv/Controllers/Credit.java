@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class Credit extends Payment implements PaymentStrategy {
 
-	private int number;
+	private String number;
 	private boolean type;
 	Date expDate;
 	
-	public int getNumber() {
+	public String getNumber() {
 		return number;
 	}
 
-	public void setNumber(int number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 

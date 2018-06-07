@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import br.edu.ifsp.btv.SispedidosApplication;
+import br.edu.ifsp.btv.Controllers.Credit;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -17,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 
 public class CreditPayment extends JFrame {
@@ -64,7 +66,7 @@ public class CreditPayment extends JFrame {
 	public CreditPayment() {
 		setTitle("Dados do cartão");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 200);
+		setBounds(100, 100, 450, 220);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -88,9 +90,23 @@ public class CreditPayment extends JFrame {
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(validateFields()) {
-					JOptionPane.showMessageDialog(null, 
-							"Parabéns pela sua aquisição, suas compras serão entregues em breve.", 
-							"Compra efetuada com sucesso", JOptionPane.INFORMATION_MESSAGE);
+					Credit creditPayment = new Credit();
+					try {
+						creditPayment.setExpDate(new Date(txtData.getText().toString()));
+						creditPayment.setNumber(txtCreditNumber.getText().toString());
+						creditPayment.setType(true);
+						
+						SispedidosApplication.getInstance().setPaymentMethod(creditPayment);
+						
+						OrderDetails shippingOrderDetails = new OrderDetails();
+						shippingOrderDetails.show();
+						hide();
+					}catch(Exception ex) {
+						JOptionPane.showMessageDialog(null, 
+								"Formato do campo data incorreto", 
+								"Erro ao coletar data digitada", 
+								JOptionPane.ERROR_MESSAGE);
+					}
 				}else {
 					JOptionPane.showMessageDialog(null, 
 							"Preencha todos os campos", 

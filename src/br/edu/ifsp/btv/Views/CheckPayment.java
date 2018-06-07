@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import br.edu.ifsp.btv.SispedidosApplication;
+import br.edu.ifsp.btv.Controllers.Check;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -79,9 +80,22 @@ public class CheckPayment extends JFrame {
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(validateFields()) {
-					JOptionPane.showMessageDialog(null, 
-							"Parabéns pela sua aquisição, suas compras serão entregues em breve.", 
-							"Compra efetuada com sucesso", JOptionPane.INFORMATION_MESSAGE);
+					Check paymentCheck = new Check();
+					try {
+						paymentCheck.setBankID(Integer.parseInt(txtBankId.getText().toString()));
+						paymentCheck.setName(txtName.getText().toString());
+						Utils.savePaymentMethod(paymentCheck);
+						
+						OrderDetails shippingOrderDetails = new OrderDetails();
+						shippingOrderDetails.show();
+						hide();
+					}catch(Exception ex) {
+						JOptionPane.showMessageDialog(null, 
+								"Digite somente números no campo bank id", 
+								"Erro ao prosseguir", 
+								JOptionPane.ERROR_MESSAGE);
+					}
+					
 				}else {
 					JOptionPane.showMessageDialog(null, 
 							"Preencha todos os campos", 
