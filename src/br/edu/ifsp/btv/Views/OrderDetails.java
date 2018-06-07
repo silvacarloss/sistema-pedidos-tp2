@@ -51,25 +51,27 @@ public class OrderDetails extends JFrame {
 		JLabel lblQuantity = new JLabel("");
 		lblQuantity.setText(Integer.toString(SispedidosApplication.getInstance().getChartItems().size()));
 		
-		JLabel lblSubtotal = new JLabel("Subtotal:");		
-		JLabel lblSubtotalValue = new JLabel("0");		
+		JLabel lblSubtotal = new JLabel("Subtotal:");
 		JLabel lblThanks = new JLabel("Obrigado por comprar conosco!");	
 		JLabel lblSentMessage = new JLabel("Seu pedido será entregue em breve.");		
-		JLabel lblTotalWeightTxt = new JLabel("Peso total da compra:");		
-		JLabel lblTotalWeight = new JLabel("0.0");
+		JLabel lblTotalWeightTxt = new JLabel("Peso total da compra:");
 		
 		float total = 0;
 		float weight = 0;
+		
 		for(Item item : SispedidosApplication.getInstance().getChartItems()) {
 			total += item.getPrice();
 			weight += item.getWeight();
-		}		
-		
-		lblSubtotalValue.setText(Float.toString(total));
-		lblTotalWeight.setText(Float.toString(weight) + " g");
+		}
 		
 		lblThanks.setText("Obrigado por comprar conosco, " + 
 		SispedidosApplication.getInstance().getCustomer().getName());
+		
+		JLabel labelSubtotal = new JLabel("0");
+		labelSubtotal.setText(Float.toString(total));
+		
+		JLabel labelWeight = new JLabel("0");
+		labelWeight.setText(Float.toString(weight));
 	
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
@@ -78,20 +80,20 @@ public class OrderDetails extends JFrame {
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblQuantidadeDeItens)
-							.addGap(18)
-							.addComponent(lblQuantity))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblSubtotal, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(lblSubtotalValue, GroupLayout.PREFERRED_SIZE, 8, GroupLayout.PREFERRED_SIZE))
 						.addComponent(lblSentMessage)
 						.addComponent(lblThanks)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(lblTotalWeightTxt)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(labelWeight))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblQuantidadeDeItens)
+								.addComponent(lblSubtotal, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
 							.addGap(18)
-							.addComponent(lblTotalWeight, GroupLayout.PREFERRED_SIZE, 8, GroupLayout.PREFERRED_SIZE)))
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(labelSubtotal)
+								.addComponent(lblQuantity))))
 					.addContainerGap(123, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
@@ -103,15 +105,13 @@ public class OrderDetails extends JFrame {
 						.addComponent(lblQuantity))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblSubtotal)
-						.addComponent(lblSubtotalValue))
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(lblSubtotal)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblTotalWeightTxt))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(1)
-							.addComponent(lblTotalWeight)))
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblTotalWeightTxt)
+								.addComponent(labelWeight)))
+						.addComponent(labelSubtotal))
 					.addGap(24)
 					.addComponent(lblThanks)
 					.addPreferredGap(ComponentPlacement.RELATED)
