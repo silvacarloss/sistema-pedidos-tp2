@@ -5,8 +5,7 @@ import java.util.List;
 
 public class Order {
 	private Date orderDate;
-	private String status;
-	private List<Item> items;	
+	private String status;	
 
 	private Customer customer;
 	private Payment paymentMethod;	
@@ -41,33 +40,5 @@ public class Order {
 
 	public void setPaymentMethod(Payment paymentMethod) {
 		this.paymentMethod = paymentMethod;
-	}
-	
-	public List<Item> getItems() {
-		return items;
-	}
-
-	public void setItems(List<Item> items) {
-		this.items = items;
-	}
-
-	public double calculateTotalWeight(){
-		double totalWeight = 0.0;
-		for(Item item : items) {
-			totalWeight += item.getWeight();
-		}
-		return totalWeight;
-	}
-	
-	public double calculateTax(){
-		return 0.0;
-	}
-	
-	public double calculateTotal() {
-		double totalWeight = 0.0;
-		for(Item item : items) {
-			totalWeight += item.getPrice();
-		}
-		return totalWeight + calculateTax();
 	}
 }

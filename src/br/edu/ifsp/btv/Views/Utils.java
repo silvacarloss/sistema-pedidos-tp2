@@ -62,7 +62,6 @@ public class Utils {
 		Order currentOrder = new Order();
 		currentOrder.setOrderDate(orderDate);
 		currentOrder.setStatus(status);
-		currentOrder.setItems(items);
 		currentOrder.setCustomer(customer);
 		currentOrder.setPaymentMethod(paymentMethod);
 		

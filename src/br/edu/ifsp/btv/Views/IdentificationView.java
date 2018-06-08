@@ -9,9 +9,13 @@ import javax.swing.border.EmptyBorder;
 
 import br.edu.ifsp.btv.SispedidosApplication;
 import br.edu.ifsp.btv.Controllers.Customer;
+import br.edu.ifsp.btv.Controllers.Item;
+import br.edu.ifsp.btv.Controllers.OrderDetail;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
@@ -96,6 +100,9 @@ public class IdentificationView extends JFrame {
 					customer.setAddress(address);
 					customer.setName(name);
 					SispedidosApplication.getInstance().setCustomer(customer);
+					OrderDetail details = new OrderDetail();
+					details.setItems(SispedidosApplication.getInstance().getChartItems());
+					SispedidosApplication.getInstance().setCurrentOrderDetails(details);
 					
 					hide();
 					ShoppingView shopping = new ShoppingView();					

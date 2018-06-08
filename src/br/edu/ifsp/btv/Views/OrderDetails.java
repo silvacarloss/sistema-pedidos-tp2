@@ -54,24 +54,19 @@ public class OrderDetails extends JFrame {
 		JLabel lblSubtotal = new JLabel("Subtotal:");
 		JLabel lblThanks = new JLabel("Obrigado por comprar conosco!");	
 		JLabel lblSentMessage = new JLabel("Seu pedido será entregue em breve.");		
-		JLabel lblTotalWeightTxt = new JLabel("Peso total da compra:");
+		JLabel lblTotalWeightTxt = new JLabel("Peso total da compra (g):");
 		
-		float total = 0;
-		float weight = 0;
-		
-		for(Item item : SispedidosApplication.getInstance().getChartItems()) {
-			total += item.getPrice();
-			weight += item.getWeight();
-		}
-		
+		double total = SispedidosApplication.getInstance().getCurrentOrderDetails().calculateTotal();
+		double weight = SispedidosApplication.getInstance().getCurrentOrderDetails().calculateTotalWeight();
+				
 		lblThanks.setText("Obrigado por comprar conosco, " + 
 		SispedidosApplication.getInstance().getCustomer().getName());
 		
 		JLabel labelSubtotal = new JLabel("0");
-		labelSubtotal.setText(Float.toString(total));
+		labelSubtotal.setText(Double.toString(total));
 		
 		JLabel labelWeight = new JLabel("0");
-		labelWeight.setText(Float.toString(weight));
+		labelWeight.setText(Double.toString(weight));
 	
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);

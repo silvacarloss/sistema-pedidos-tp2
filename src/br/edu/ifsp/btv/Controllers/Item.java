@@ -1,11 +1,11 @@
 package br.edu.ifsp.btv.Controllers;
 
 public class Item {
-	private float shippingWeight;
+	private double shippingWeight;
 	private String description;
-	private float price;
+	private double price;
 	
-	public float getShippingWeight() {
+	public double getShippingWeight() {
 		return shippingWeight;
 	}
 	public void setShippingWeight(float shippingWeight) {
@@ -20,13 +20,13 @@ public class Item {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	public float getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	public float getPriceForQuantity(float price, float shippingWeight) {
 		return price*shippingWeight;
 	}
-	public float getWeight() {
+	public double getWeight() {
 		return shippingWeight;
 	}
 }

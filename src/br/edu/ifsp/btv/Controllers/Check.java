@@ -1,5 +1,8 @@
 package br.edu.ifsp.btv.Controllers;
 
+import br.edu.ifsp.btv.Controllers.Payment;
+import br.edu.ifsp.btv.Controllers.PaymentStrategy;
+
 public class Check extends Payment implements PaymentStrategy{
 
 	private String name;

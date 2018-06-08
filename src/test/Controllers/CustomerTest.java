@@ -1,4 +1,4 @@
-package Controllers;
+package test.Controllers;
 
 import static junit.framework.Assert.assertEquals;
 

@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import br.edu.ifsp.btv.SispedidosApplication;
 import br.edu.ifsp.btv.Controllers.Item;
+import br.edu.ifsp.btv.Controllers.OrderDetail;
 
 import javax.swing.JTextField;
 import javax.swing.GroupLayout;
@@ -70,16 +71,16 @@ public class ShoppingView extends JFrame {
 		
 		JLabel lblPrice = new JLabel("0");
 		
-		float totalPrice = 0;
+		double total = 0;
 		
-		for(Item item : SispedidosApplication.getInstance().getChartItems()) {
-			JLabel lblNewItem = new JLabel("Descrição: " + item.getDescription() + " Preço: " + item.getPrice());
-			totalPrice += item.getPrice();
-			itemsPanel.add(lblNewItem);
+		for(Item item : SispedidosApplication.getInstance().getCurrentOrderDetails().getItems()) {
+			JLabel label = new JLabel("Descrição: " + item.getDescription() + " Preço: " + item.getPrice());
+			itemsPanel.add(label);
+			total += item.getPrice();
 		}
 		
-		lblPrice.setText(Float.toString(totalPrice));
-		
+		lblPrice.setText(Double.toString(total));
+				
 		JButton confirmShipping = new JButton("Comprar");
 		confirmShipping.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
